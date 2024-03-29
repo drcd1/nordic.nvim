@@ -32,18 +32,19 @@ function C.extend_palette()
 
     -- Backgrounds
     C.bg = (O.transparent_bg and C.none) or C.gray0
-    C.bg_dark = (O.transparent_bg and C.none) or C.black0
-    C.bg_highlight = U.blend(C.bg_dark, C.bg, O.cursorline.blend)
+    -- C.bg = "#900090"
+    C.bg_dark = C.black0
+    C.bg_highlight = U.blend(C.bg_dark, C.gray0, O.cursorline.blend)
     C.bg_visual = C.bg_highlight
-    C.bg_sidebar = (O.transparent_bg and C.none) or C.bg
-    C.bg_popup = (O.transparent_bg and C.none) or C.bg
+    C.bg_sidebar = C.gray0
+    C.bg_popup = C.gray0
     C.bg_statusline = C.bg_dark
     C.bg_selected = U.blend(C.gray2, C.black0, 0.4)
     C.bg_fold = C.gray2
 
     -- Borders
     C.border_fg = (O.bright_border and C.white0) or C.black0
-    C.border_bg = (O.transparent_bg and C.none) or C.bg
+    C.border_bg = C.gray0 --(O.transparent_bg and C.none) or C.bg
 
     -- Foregrounds
     C.fg = C.white0
@@ -54,23 +55,23 @@ function C.extend_palette()
     C.fg_selected = C.fg_bright
 
     -- Popups
-    C.bg_popup = C.bg
+    C.bg_popup = C.gray0
     C.fg_popup = C.fg
-    C.bg_popup_border = C.bg
+    C.bg_popup_border = C.gray0
     C.fg_popup_border = C.border_fg
 
     -- Floating windows
-    C.bg_float = (O.transparent_bg and C.none) or C.black1
+    C.bg_float = C.black1
     C.fg_float = C.fg
     C.bg_float_border = C.bg_float
     C.fg_float_border = C.border_fg
 
     -- Diffs
     C.diff = {
-        change0 = U.blend(C.blue1, C.bg, 0.05),
-        change1 = U.blend(C.blue2, C.bg, diff_blend),
-        add = U.blend(C.green.base, C.bg, diff_blend),
-        delete = U.blend(C.red.base, C.bg, diff_blend),
+        change0 = U.blend(C.blue1, C.gray0, 0.05),
+        change1 = U.blend(C.blue2, C.gray0, diff_blend),
+        add = U.blend(C.green.base, C.gray0, diff_blend),
+        delete = U.blend(C.red.base, C.gray0, diff_blend),
     }
 
     -- Git
@@ -89,7 +90,7 @@ function C.extend_palette()
 
     -- Cursorline
     if O.cursorline.theme == 'light' then
-        C.bg_highlight = U.blend(C.gray1, C.bg, O.cursorline.blend)
+        C.bg_highlight = U.blend(C.gray1, C.gray0, O.cursorline.blend)
         C.bg_visual = C.bg_highlight
     end
 end
